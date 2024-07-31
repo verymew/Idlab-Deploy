@@ -37,7 +37,7 @@
                             <h3 class="heading">{{ $project->title }}</h3>
                             <p>{{ $project->resume }}</p>
                             <div class="mt-auto">
-                                <a href="" class="btn btn-secondary px-4 py-3">Ver mais</a>
+                                <a href="{{ route('showproject', $project->id) }}" class="btn btn-secondary px-4 py-3">Ver mais</a>
                             </div>
                         </div>
                     </div>

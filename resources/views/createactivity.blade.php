@@ -33,12 +33,12 @@
                     @endif
 
                     <label for="fname">Nome da atividade:</label><br>
-                    <input type="text" name="projname"><br>
+                    <input value="<?= old('projname') ?>" type="text" name="projname"><br>
                     <label for="fname">Sobre a atividade:</label><br>
-                    <textarea style="height: 100px; width: 300px;" name="projresume" placeholder="Um resumo sobre o evento..."></textarea><br>
+                    <textarea style="height: 100px; width: 300px;" name="projresume" placeholder="Um resumo sobre o evento..."><?= old('projresume') ?></textarea><br>
                     <br>
                     <label for="start">Dia da Atividade:</label>
-                    <input type="date" id="start" name="event_day" /><br><br>
+                    <input value="<?= old('event_day') ?>" type="date" id="start" name="event_day" /><br><br>
                     <label>Imagem da Atividade: </label><br>
                     <input type="file" name="image" id="image">
                     <br>

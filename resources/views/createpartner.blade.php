@@ -34,11 +34,11 @@
                     @endif
 
                     <label for="fname">Nome do integrante:</label><br>
-                    <input type="text" name="projname"><br>
+                    <input value="<?= old('projname') ?>" type="text" name="projname"><br>
                     <br>
                     <label for="lname">Sobre:</label><br>
                     <textarea style="height: 100px; width: 300px;" name="projresume"
-                        placeholder="Um texto pequeno que descreve o integrante..."></textarea><br>
+                        placeholder="Um texto pequeno que descreve o integrante..."><?= old('projresume') ?></textarea><br>
                     <label>Foto do integrante: </label><br>
                     <input type="file" name="image" id="image">
                     <br>

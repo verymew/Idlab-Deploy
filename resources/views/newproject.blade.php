@@ -33,18 +33,19 @@
                     </div>
               @endif
 
+
               <h1>Novo Projeto</h1><br>
               <label for="fname">Nome do projeto:</label><br>
-              <input type="text" name="projname">
+              <input value="<?= old('projname') ?>" type="text" name="projname">
               <br>
               <label for="lname">Resumo:</label><br>
-              <textarea style="height: 100px; width: 300px;" name="projresume" placeholder="Um texto pequeno para chamar atenção..."></textarea><br>
+              <textarea style="height: 100px; width: 300px;" name="projresume" placeholder="Um texto pequeno para chamar atenção..."><?= old('projresume') ?></textarea><br>
               <label>Imagem do projeto: </label><br>
-              <input type="file" name="image" id="image">
+              <input  type="file" name="image" id="image">
               <br>
               <label>Postagem: </label>
               <br>
-              <textarea style="height: 100px; width: 300px;" name="projcontent" placeholder="Escreva sobra o projeto aqui..."></textarea><br>
+              <textarea name="projcontent" style="height: 100px; width: 300px;" placeholder="Escreva sobre o projeto aqui..."><?= old('projcontent') ?></textarea><br>
               <button class="btn btn-success" type="submit">Enviar</button>
             </form>
         </div>

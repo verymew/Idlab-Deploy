@@ -11,7 +11,6 @@
                 <div class="desc pl-6">
                     <h3  style="overflow-wrap: break-word !important;" class="heading"><a href="#">{{ $projects->title }} </a></h3>
                 </div>
-                <p><a href="{{ route('showproject', ['postid' => $projects->id]) }}" class="btn btn-secondary px-4 py-3">Visualizar projeto</a></p>
               </div>
             </div>
         </div>

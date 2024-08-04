@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="hero-wrap js-fullheight">
-        <div class="overlay"></div>
+        <div class="overlay" style="background-image: url('{{ asset('dragon-scales.svg') }}');"></div>
         <div class="container-fluid px-0">
             <div id="barcar"
                 class="row d-md-flex no-gutters slider-text align-items-center js-fullheight justify-content-start">

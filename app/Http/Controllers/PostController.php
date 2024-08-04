@@ -8,20 +8,25 @@ use App\Models\activities;
 use App\Models\Team;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Console\Input\Input;
 
 class PostController extends Controller
 {
     public function newPost(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'projname' => 'required|string|max:255',
             'projcontent' => 'required|string',
             'projresume' =>'required|string|max: 100',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator->messages())->withInput();
+        }
 
         $userId = Auth::id();
         $user = User::findOrFail($userId);
@@ -151,7 +156,7 @@ class PostController extends Controller
     //Rotas de atividade
     public function createActivity(Request $request)
     {
-        $request->validate(
+        $validator = Validator::make($request->all(),
             [
                 'projname' => 'required|string| max: 100',
                 'projresume' => 'required|string|max:100',
@@ -159,6 +164,10 @@ class PostController extends Controller
                 'image' => 'required|image|mimes:jpeg,png,jpg|max:2048'
             ]
         );
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator->messages())->withInput();
+        }
 
         $imagePath = $request->file('image')->store('images', 'public');
 
@@ -255,12 +264,16 @@ class PostController extends Controller
 
     public function createPartner(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(),[
             'projname' => 'required|string|max:100',
             'job' => 'required|string',
             'projresume' =>'required|string|max: 100',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator->messages())->withInput();
+        }
 
         $imagePath = $request->file('image')->store('images', 'public');
 
